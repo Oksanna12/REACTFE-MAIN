@@ -20,6 +20,9 @@ function Header() {
           <li className="transform hover:scale-110 transition duration-200">
             <Link className="text-lg font-semibold text-green-500 hover:text-orange-500" to="/new">Discover</Link>
           </li>
+          <li className="transform hover:scale-110 transition duration-200">
+            <Link className="text-lg font-semibold text-green-500 hover:text-orange-500" to="/head">My header</Link>
+          </li>
         </ul>
       </nav>
       
