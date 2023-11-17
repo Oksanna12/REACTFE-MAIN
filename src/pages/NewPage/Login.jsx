@@ -1,8 +1,7 @@
-import { ReactDOM } from "react";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import style from './../../components/HEADER/Header.module.css';
-import NavigationLink from "../../components/HEADER/NavigationLink";
+import style from './../../components/Header/Header.module.css';
+import NavigationLink from "../../components/Header/NavigationLink";
 
 
 const Login = (props) => {
@@ -26,9 +25,9 @@ const Login = (props) => {
 		<div className="pt-5">
 			<div id={style.login} className='w-7/12 m-auto border-double border-4 p-1'>
 				<div className='text-2xl font-bold text-orange-950 pt-2'>Login</div>
-				<form id={style.forma} onSubmit={formik.handleSubmit} className="  text-xl space-y-2 flex justify-center flex-col m-auto w-64 h-72">
+				<form id={style.forma} onSubmit={formik.handleSubmit} className="text-xl space-y-2 flex justify-center flex-col m-auto w-64 h-72">
 					<label htmlFor='email'>Email</label>
-					<input className='p-1 border rounded border-gray-400  text-sm '
+					<input className='p-1 border rounded border-gray-400 text-sm '
 						name='email'
 						type='text'
 						onChange={formik.handleChange}

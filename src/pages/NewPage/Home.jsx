@@ -1,5 +1,4 @@
-import React from 'react';
-import NavigationLink from '../../components/HEADER/NavigationLink';
+import NavigationLink from '../../components/Header/NavigationLink';
 
 
 const Home = () => {

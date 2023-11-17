@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { NavLink } from "react-router-dom";
-import style from './Header.module.css';
-import SearchBar from '../SEARCHBAR/SearchBar';
-import Logo from '../LOGO/Logo';
-import SoppingCart from '../SOPPING-CART/SoppingCart';
+import headerStyles from './Header.module.css';
+import SearchBar from '../SearchBar/SearchBar';
+import Logo from '../Logo/Logo';
+import SoppingCart from '../Shopping-cart/SoppingCart';
 
 
 
@@ -12,38 +12,38 @@ const NavigationLink = () => {
 	const [openedMenu, setOpenedMenu] = useState(false);
 	const toggles = () => setOpenedMenu((openedMenu) => !openedMenu);
 
-	return <header id={style.head}>
-		<nav id={style.nav} >
+	return <header id={headerStyles.head}>
+		<nav id={headerStyles.nav} >
 			<Logo />
-			<div id={style.cart_mobile} className='absolute right-1 top-2.5'><SoppingCart /></div>
-			
-			<div id={style.menu} className='relative' onClick={toggles}>
+			<div id={headerStyles.cart_mobile} className='absolute right-1 top-2.5'><SoppingCart /></div>
+
+			<div id={headerStyles.menu} className='relative' onClick={toggles}>
 				<span></span>
 				<span></span>
 				<span></span>
 			</div >
-			
-			<ul id={openedMenu ? style.close : style.show} className='text-indigo-300'>
-				<li className=' transform hover:scale-110 transition duration-400 hover:text-yellow-100'>
-					<NavLink className='' to='/home'>Home</NavLink>
-				</li>
-				<li className="transform hover:scale-110 transition duration-400 hover:text-yellow-100 ">
-					<NavLink className='' to='/category'>Category</NavLink>
+
+			<ul id={openedMenu ? headerStyles.close : headerStyles.show} className='text-indigo-300'>
+				<li className='transform hover:scale-110 transition duration-400 hover:text-yellow-100'>
+					<NavLink to='/home'>Home</NavLink>
 				</li>
 				<li className="transform hover:scale-110 transition duration-400 hover:text-yellow-100">
-					<NavLink className='' to='/about'>About</NavLink>
+					<NavLink to='/category'>Category</NavLink>
 				</li>
 				<li className="transform hover:scale-110 transition duration-400 hover:text-yellow-100">
-					<NavLink className='' to='/services'>Services</NavLink>
+					<NavLink to='/about'>About</NavLink>
 				</li>
 				<li className="transform hover:scale-110 transition duration-400 hover:text-yellow-100">
-					<NavLink className='' to='/contacts'>Contacts</NavLink>
+					<NavLink to='/services'>Services</NavLink>
 				</li>
-				<div id={style.cart}><SoppingCart /></div>
-				
+				<li className="transform hover:scale-110 transition duration-400 hover:text-yellow-100">
+					<NavLink to='/contacts'>Contacts</NavLink>
+				</li>
+				<div id={headerStyles.cart}><SoppingCart /></div>
+
 				<SearchBar />
 				<li className='transform hover:scale-110 transition duration-400 hover:text-yellow-100'>
-					<NavLink className='' to='/login'>Login</NavLink>
+					<NavLink to='/login'>Login</NavLink>
 				</li>
 			</ul>
 		</nav>

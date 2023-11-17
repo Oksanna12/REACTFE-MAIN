@@ -73,10 +73,7 @@ body{
 	 #dropdown{
 		position: absolute;
 		top: 104px;
-		
-
-	}
-	
+	}	
 }
 
 @media(max-width:820px){
@@ -168,9 +165,6 @@ body{
 	}
 	#menu{
 		margin-top:8px;
-		
-	}
-	#nav #title{
 		
 	}
 	#cart_mobile{
