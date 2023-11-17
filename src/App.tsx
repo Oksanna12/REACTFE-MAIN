@@ -8,6 +8,16 @@ import Header from "../src/pages/Header/Header";
 
 import { Route, Routes } from "react-router-dom";
 
+import Login from "./pages/NewPage/Login";
+import NavigationLink from "./components/Header/NavigationLink";
+import Footer from "./components/Footer/Footer";
+import Home from "./pages/NewPage/Home";
+import Category from "./pages/NewPage/Category";
+import About from "./pages/NewPage/About";
+import Services from "./pages/NewPage/Services";
+import Contacts from "./pages/NewPage/Contacts";
+import Logo from "./components/Logo/Logo";
+
 function App() {
   const dispatch = useDispatch<AppDispatch>();
 
@@ -26,12 +36,18 @@ function App() {
   console.log(data, "data");
   return (
     <div className="App">
-      {/* Define routes */}
       <main>
         <Routes>
           <Route path="/new" element={<NewPage />} />
           <Route path="/" element={<Header />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/category" element={<Category />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
+        <Footer />
       </main>
     </div>
   );

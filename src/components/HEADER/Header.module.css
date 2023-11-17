@@ -1,0 +1,193 @@
+body{
+	padding: 0px;
+	margin-left: 0px;
+}
+
+#head{
+	position: sticky;
+	top:0;
+	right: 0;
+}
+#nav{
+	padding-right: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: rgb(91, 3, 3);
+	
+}
+
+#nav #title{
+	display: flex;
+	font-size: 1.5rem;
+	margin:1rem;
+	font-weight: bold;
+}
+
+#nav ul{
+	display: flex;
+}
+
+#nav ul li a{
+   display:block;
+	padding: 8px;
+	margin: 0 8px;
+	border-radius: 50px;
+}
+
+#nav #menu{
+	display: none;
+	position: absolute;
+	top:12px;
+	right: 8px;
+	flex-direction: column;
+	justify-content: space-between;
+	width:36px;
+	height: 32px;
+}
+
+#nav #menu span{
+	height: 6px;
+	width:100%;
+	background-color: rgb(255, 239, 174);
+	border-radius: 2px;
+}
+
+#login{
+	box-shadow: 5px 25px 50px 12px rgb(0 0 0 / 0.25);
+}
+#cart_mobile{
+	display: none;
+}
+
+
+
+@media(max-width:1040px){
+    #nav{
+		flex-direction: column;
+	 }
+	 
+	 #search{
+		position: relative;
+	 }
+	 #dropdown{
+		position: absolute;
+		top: 104px;
+	}	
+}
+
+@media(max-width:820px){
+	#forma{
+		width: 200px;
+	}
+	
+	#nav #menu{
+		display: flex;
+	}
+
+	#nav{
+		flex-direction: column;
+		align-items: center;	
+	}
+
+	#nav ul{
+		/* display:none; */
+		flex-direction: column;
+		width: 100%;
+		margin-bottom: 4px;	
+		animation: burgerAnimation 1s;	
+	}
+
+	#nav ul li{
+		width: 100%;
+		align-items: center;
+		font-weight: bold;
+		font-size: 20px;
+	}  
+
+	#nav #show{
+		display:none;
+	}
+
+	#nav #close{
+		display:flex;
+		transition: 0.5s;
+		animation: burgerAnimation 1s;
+	}
+
+	#nav ul li a{
+		margin: 5px 10px;
+	}
+
+ 	#login{
+		width: 80%;
+	}
+
+	#search{
+	   height: 25px;
+		margin: auto;
+		width: 200px;
+		height: 30px;
+		
+	}
+	#search_box{
+		position: relative;
+		width:fit-content;
+		margin: auto;
+	  
+
+
+	 }
+   #dropdown{   
+		position: absolute;
+		margin: auto;
+		top:45px;
+		z-index:999;	
+	}
+
+	#search_input{
+		margin-bottom: 3px;
+		width: 186px;
+		color: rgb(61, 10, 10);
+
+	}
+
+	#search img{
+		margin-top: 3px;
+	}
+
+	#cart_icon{
+		margin-right: 55px;
+		margin-top:8px;
+	}
+	#cart{
+		display: none;
+	}
+	#menu{
+		margin-top:8px;
+		
+	}
+	#cart_mobile{
+		display: block;
+	}
+
+}
+
+@media(max-width:340px){
+   #cart_mobile{
+		display: none;
+	}
+	#cart{
+		display: block;
+	}
+}
+
+
+@keyframes burgerAnimation {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
