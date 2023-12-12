@@ -9,7 +9,7 @@ import Header from "../src/pages/Header/Header";
 import { Route, Routes } from "react-router-dom";
 
 import Login from "./pages/NewPage/Login";
-import NavigationLink from "./components/Header/NavigationLink";
+
 import Footer from "./components/Footer/Footer";
 import Home from "./pages/NewPage/Home";
 import Category from "./pages/NewPage/Category";
@@ -17,6 +17,9 @@ import About from "./pages/NewPage/About";
 import Services from "./pages/NewPage/Services";
 import Contacts from "./pages/NewPage/Contacts";
 import Logo from "./components/Logo/Logo";
+import SignUp from "./pages/NewPage/SignUp/SignUp";
+import AuthDetails from "./components/auth/AuthDetails";
+import { auth } from "./firebase";
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -34,6 +37,8 @@ function App() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
   console.log(data, "data");
+
+ 
   return (
     <div className="App">
       <main>
@@ -46,7 +51,10 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/login" element={<Login />} />
-        </Routes>
+          <Route path="/profile"element={!auth.currentUser?<AuthDetails />: <SignUp /> } />
+          <Route path="/signup" element= {<SignUp />} />
+      
+        </Routes> 
         <Footer />
       </main>
     </div>

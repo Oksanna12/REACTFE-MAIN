@@ -4,13 +4,30 @@ import headerStyles from './Header.module.css';
 import SearchBar from '../SearchBar/SearchBar';
 import Logo from '../Logo/Logo';
 import SoppingCart from '../Shopping-cart/SoppingCart';
-
+import {auth} from '../../firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 
 
 
 const NavigationLink = () => {
 	const [openedMenu, setOpenedMenu] = useState(false);
+	
+
 	const toggles = () => setOpenedMenu((openedMenu) => !openedMenu);
+	const user = auth.currentUser;
+	onAuthStateChanged(auth, (user) => {
+		if (user) {
+			
+		  const uid = user.uid;
+		  console.log(uid,user.email)
+        
+		  // ...
+		} else {
+		    console.log('No users')
+		}
+	 });
+	
+	
 
 	return <header id={headerStyles.head}>
 		<nav id={headerStyles.nav} >
@@ -42,9 +59,20 @@ const NavigationLink = () => {
 				<div id={headerStyles.cart}><SoppingCart /></div>
 
 				<SearchBar />
+				{/* {!user && ( */}
 				<li className='transform hover:scale-110 transition duration-400 hover:text-yellow-100'>
-					<NavLink to='/login'>Login</NavLink>
+					<NavLink to={user? '/profile' : '/login'}>{user? user.email: 'Login'}</NavLink>
 				</li>
+				{/* )} */}
+				{/* {user && (
+							<li className='transform hover:scale-110 transition duration-400 hover:text-yellow-100'>
+					<NavLink to='/dashboard'>
+						<span>{user.displayName}</span>
+					</NavLink> */}
+				{/* </li> */}
+				{/* )} */}
+
+		
 			</ul>
 		</nav>
 	</header>
