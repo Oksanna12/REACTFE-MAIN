@@ -51,7 +51,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/profile"element={!auth.currentUser?<AuthDetails />: <SignUp /> } />
+          <Route path="/profile" element={<AuthDetails />} />
           <Route path="/signup" element= {<SignUp />} />
       
         </Routes> 
