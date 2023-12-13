@@ -12,6 +12,7 @@ import { useState } from 'react';
 
 
 
+
 const SignUp = (navig) => {
 
 	const[err,setErr]=useState('');
