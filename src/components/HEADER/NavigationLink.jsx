@@ -1,39 +1,35 @@
 import { useState } from 'react';
 import { NavLink } from "react-router-dom";
-import headerStyles from './Header.module.css';
+import headerStyles from './../../Styles/Styles.module.css';
 import SearchBar from '../SearchBar/SearchBar';
 import Logo from '../Logo/Logo';
 import SoppingCart from '../Shopping-cart/SoppingCart';
-import {auth} from '../../firebase';
+import { auth } from '../../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
+import AuthDetails from '../Auth/AuthDetails';
+import Login from '../../pages/NewPage/Login';
 
 
 
 const NavigationLink = () => {
 	const [openedMenu, setOpenedMenu] = useState(false);
-	
-
 	const toggles = () => setOpenedMenu((openedMenu) => !openedMenu);
 	const user = auth.currentUser;
+
 	onAuthStateChanged(auth, (user) => {
 		if (user) {
-			
-		  const uid = user.uid;
-		  console.log(uid,user.email)
-        
-		  // ...
+			const uid = user.uid;
 		} else {
-		    console.log('No users')
+			console.log('No users')
 		}
-	 });
-	
-	
+	});
+
+
 
 	return <header id={headerStyles.head}>
 		<nav id={headerStyles.nav} >
 			<Logo />
 			<div id={headerStyles.cart_mobile} className='absolute right-1 top-2.5'><SoppingCart /></div>
-
 			<div id={headerStyles.menu} className='relative' onClick={toggles}>
 				<span></span>
 				<span></span>
@@ -59,20 +55,10 @@ const NavigationLink = () => {
 				<div id={headerStyles.cart}><SoppingCart /></div>
 
 				<SearchBar />
-				{/* {!user && ( */}
-				<li className='transform hover:scale-110 transition duration-400 hover:text-yellow-100'>
-					<NavLink to={user? '/profile' : '/login'}>{user? user.email: 'Login'}</NavLink>
-				</li>
-				{/* )} */}
-				{/* {user && (
-							<li className='transform hover:scale-110 transition duration-400 hover:text-yellow-100'>
-					<NavLink to='/dashboard'>
-						<span>{user.displayName}</span>
-					</NavLink> */}
-				{/* </li> */}
-				{/* )} */}
 
-		
+				<li className='transform hover:scale-110 transition duration-400 hover:text-yellow-100'>
+					<NavLink to={user ? `/profile/${user.uid}` : '/login'}>{user ? user.email : 'Login'}</NavLink>
+				</li>
 			</ul>
 		</nav>
 	</header>

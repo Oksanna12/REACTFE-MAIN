@@ -1,4 +1,4 @@
-import headerStyles from './../Header/Header.module.css'
+import headerStyles from './../../Styles/Styles.module.css'
 
 const SoppingCart = () => {
 	return (
