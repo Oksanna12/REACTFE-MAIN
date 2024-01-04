@@ -6,8 +6,6 @@ import Logo from '../Logo/Logo';
 import SoppingCart from '../Shopping-cart/SoppingCart';
 import { auth } from '../../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
-import AuthDetails from '../Auth/AuthDetails';
-import Login from '../../pages/NewPage/Login';
 
 
 
@@ -38,7 +36,7 @@ const NavigationLink = () => {
 
 			<ul id={openedMenu ? headerStyles.close : headerStyles.show} className='text-indigo-300'>
 				<li className='transform hover:scale-110 transition duration-400 hover:text-yellow-100'>
-					<NavLink to='/home'>Home</NavLink>
+					<NavLink to='/'>Home</NavLink>
 				</li>
 				<li className="transform hover:scale-110 transition duration-400 hover:text-yellow-100">
 					<NavLink to='/category'>Category</NavLink>

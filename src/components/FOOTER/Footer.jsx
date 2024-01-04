@@ -9,7 +9,7 @@ const Footer = () => {
 			<div className='max-w-7xl mx-auto'>
 				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2'>
 					<div className='mb-3'>
-						<h4 className='pb-4'><Link className='hover:text-yellow-100' to='/home'>HEADER</Link></h4>
+						<h4 className='pb-4'><Link className='hover:text-yellow-100' to='/'>HEADER</Link></h4>
 						<p className='text-gray-400'>
 							3759 Traction Street <br></br>
 							South Carolina 29620 <br></br>
@@ -23,9 +23,9 @@ const Footer = () => {
 						<h4 className='pb-4'>Useful links</h4>
 						<ul className='text-gray-400'>
 							<li className='pb-4'><Link className='hover:text-yellow-100
-							  transition duration-200' to='/home'>Home</Link></li>
+							  transition duration-200' to='/'>Home</Link></li>
 							<li className='pb-4'><Link className='hover:text-yellow-100
-							  transition duration-200' to='/home'>About Us</Link></li>
+							  transition duration-200' to='/'>About Us</Link></li>
 							<li className='pb-4'><Link className='hover:text-yellow-100
 							  transition duration-200' to='home'>Terms of Service</Link></li>
 							<li className='pb-4'><Link className='hover:text-yellow-100

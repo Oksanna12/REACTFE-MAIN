@@ -68,7 +68,7 @@ body{
    background-attachment:fixed;
 	background-size:cover;
 }
-#backgroundInfo, #backgroundUser{
+#backgroundInfo, #backgroundUser, #loginContainer, #signupContainer{
 	background:url('https://abrakadabra.fun/uploads/posts/2022-01/1643543508_6-abrakadabra-fun-p-meditsina-oboi-na-telefon-6.jpg');
 	background-repeat: no-repeat;
    background-position: 0 0;

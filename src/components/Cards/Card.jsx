@@ -21,7 +21,7 @@ const Card = ({data, isSingle}) => {
 						<div className ="pt-2 text-indigo-900 text-lg">
 							   <strong className="text-yellow-100 text-2xl">{fullName}</strong> 
 							<strong><ul>
-									<li>Expirience: {experience}</li>
+									<li>Expirience: {experience} year(s)</li>
 									<li>Qualification: {qualifications}</li>
 									<li>...................................</li>
 								</ul></strong>

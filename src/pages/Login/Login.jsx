@@ -1,43 +1,33 @@
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
 import style from './../../Styles/Styles.module.css';
 import NavigationLink from "../../components/Header/NavigationLink";
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
-import { useState } from 'react';
+import useValidate from '../../hooks/useValidate';
 
 
 
 
-const Login = (props) => {
+const Login = () => {
 
-	const formik = useFormik({
-		initialValues: {
-			email: '',
-			password: '',
-		},
-		validationSchema: Yup.object({
-			email: Yup.string().email('Invalid email address').required('Required'),
-			password: Yup.string().max(15, 'Must be less than 15 characters').min(4,'Must be more than 3 characters').required('Required'),
-		}),
-	});
-	let signin=(e)=>{	
+   const {formik} = useValidate();
+	let navigate = useNavigate();
+
+	const signin=(e)=>{	
 		e.preventDefault();
 		signInWithEmailAndPassword(auth, formik.values.email, formik.values.password)
 	   .then((user)=>{			
-		  console.log(user.user.email);
-		  Navigate('/home');
+			navigate('/');
 	   })	
 	   .catch((error)=>{
 			console.log(error);			
 		}); 	
 	}
 	
-	return <div className="min-h-screen">
+	return <div id={style.loginContainer} className="min-h-screen">
 		<NavigationLink />
 		<div className="pt-5">
-			<div id={style.login} className='w-7/12 m-auto border-double border-4 p-1'>
+			<div id={style.login} className='w-7/12 m-auto border-double border-4 p-1 bg-white/20'>
 				<div className='text-2xl font-bold text-orange-950 pt-2'>Login</div>
 				<form  method='POST' id={style.form} onSubmit={formik.handleSubmit} className="text-xl space-y-2 flex justify-center flex-col m-auto w-64 h-80">
 					<label htmlFor='email'>Email</label>

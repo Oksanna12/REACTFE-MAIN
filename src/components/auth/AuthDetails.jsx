@@ -1,14 +1,14 @@
-import {useEffect, useState} from 'react';
+import { useState} from 'react';
 import NavigationLink from '../Header/NavigationLink';
 import { auth, db, storage } from '../../firebase';
 import { signOut } from 'firebase/auth';
 import { getDownloadURL, ref, uploadBytes} from "firebase/storage";
 import { database } from '../../firebase';
 import { set } from 'firebase/database';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { doc, getDoc } from "firebase/firestore";
 import style from '../../Styles/Styles.module.css'
-import { useHistory } from 'react-router-dom';
+
 
 const AuthDetails = ()=> {
 	const[isEditing, setIsEditing] = useState(false);
@@ -17,12 +17,14 @@ const AuthDetails = ()=> {
 	const[tel, setTel] = useState('');
 	const[image, setImage] = useState('');
 	const[imageUrl, setImageUrl] = useState('');
-
+	const navigate = useNavigate();
 
 	const signout = () => {	
+		
 		signOut(auth).then(() => {
 		console.log('Signed out');
-      Navigate('/signup');
+		navigate('/signup');
+		console.log('sign out')
 	 }).catch((error) => {
 		console.log(error.code);
 	 });
@@ -50,8 +52,8 @@ const AuthDetails = ()=> {
 	return <div id = {style.backgroundUser} className ='min-h-screen pb-6'>
 		<NavigationLink />
 		
-         <form id = {style.authForm} className ='m-auto mt-5 pl-10 pt-6 pb-10 h-4/5 rounded-2xl border-2
-			 w-1/2 flex flex-col items-start bg-indigo-400/50 shadow-2xl'
+         <form id = {style.authForm} className ='m-auto mt-5 pl-10 pt-6 pb-10 h-4/5 border-double bg-white/50 border-2
+			 w-1/2 flex flex-col items-start shadow-2xl'
 			  onSubmit = {(e) => {
 				 e.preventDefault();
 				 setIsEditing(!isEditing);
@@ -101,7 +103,7 @@ const AuthDetails = ()=> {
 						       value = {tel}
 						       onChange = {(e) => setTel(e.target.value)}></input>
 					): (
-						<b classNam ='rounded-2xl text-black'> 
+						<b className ='rounded-2xl text-black'> 
 							{tel}
 						</b>
 					)}				

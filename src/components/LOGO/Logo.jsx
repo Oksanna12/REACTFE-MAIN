@@ -4,7 +4,7 @@ import headerStyles from './../../Styles/Styles.module.css';
 
 const Logo = () => {
 	return <div >	
-		<Link id={headerStyles.title} to='/home'> 
+		<Link id={headerStyles.title} to='/'> 
 		   <div className='flex text-yellow-100 pr-8 justify-center'>
 				<div className='w-max'>
 					<img className='rounded-full p-2 w-10 h-10' 
