@@ -13,9 +13,9 @@ import useValidate from '../../hooks/useValidate.js';
 const SignUp = () => {
 
 	const [err, setErr] = useState('');
-	let navigate = useNavigate(); 
-	const {formik} = useValidate();
-	
+	let navigate = useNavigate();
+	const { formik } = useValidate();
+
 	let register = (e) => {
 		e.preventDefault();
 		createUserWithEmailAndPassword(auth, formik.values.email, formik.values.password)

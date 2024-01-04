@@ -5,7 +5,7 @@ import "./App.css";
 import { RootState } from "../src/store/index";
 import { Route, Routes } from "react-router-dom";
 import Login from "./pages/Login/Login";
-import Footer from "../src/components/Footer/Footer";
+import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home/Home";
 import Category from "./pages/Category/Category";
 import About from "./pages/About/About";
