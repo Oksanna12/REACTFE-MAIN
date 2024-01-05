@@ -1,24 +1,29 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, fetchData } from "../src/store/actions/dataActions";
 import "./App.css";
-import { RootState } from "./store/index";
-import NewPage from "../src/pages/NewPage/NewPage";
-import Header from "../src/pages/Header/Header";
-
+import { RootState } from "../src/store/index";
 import { Route, Routes } from "react-router-dom";
-
-import Login from "./pages/NewPage/Login";
-import NavigationLink from "./components/Header/NavigationLink";
+import Login from "./pages/Login/Login";
 import Footer from "./components/Footer/Footer";
-import Home from "./pages/NewPage/Home";
-import Category from "./pages/NewPage/Category";
-import About from "./pages/NewPage/About";
-import Services from "./pages/NewPage/Services";
-import Contacts from "./pages/NewPage/Contacts";
-import Logo from "./components/Logo/Logo";
+import Home from "./pages/Home/Home";
+import Category from "./pages/Category/Category";
+import About from "./pages/About/About";
+import Services from "./pages/Services/Services";
+import Contacts from "./pages/Contacts/Contacts";
+import SignUp from "./pages/SignUp/SignUp";
+import AuthDetails from "./components/Auth/AuthDetails";
+import FullInfo from "./components/Cards/FullInfo";
+import AppContext from "./context";
+// import { auth } from "./firebase";
+import DataProfile from '../src/store/data/DataProfile.json'
 
 function App() {
+  const users = DataProfile;
+  const appState = {
+    users
+  }
+
   const dispatch = useDispatch<AppDispatch>();
 
   const data = useSelector((state: RootState) => state.yourStateSlice.data);
@@ -34,19 +39,24 @@ function App() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
   console.log(data, "data");
+
+
   return (
     <div className="App">
       <main>
-        <Routes>
-          <Route path="/new" element={<NewPage />} />
-          <Route path="/" element={<Header />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/category" element={<Category />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/contacts" element={<Contacts />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
+        <AppContext.Provider value={appState}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/category" element={<Category />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/contacts" element={<Contacts />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/profile/:name" element={<AuthDetails />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/info/:name" element={<FullInfo />} />
+          </Routes>
+        </AppContext.Provider>
         <Footer />
       </main>
     </div>
