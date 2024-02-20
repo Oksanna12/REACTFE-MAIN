@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-navigation/native": "^6.1.9",
+    "@react-navigation/native-stack": "^6.9.17",
     "@testing-library/jest-dom": "^5.17.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.52",
@@ -13,6 +15,7 @@
     "@types/redux": "^3.6.0",
     "autoprefixer": "^10.4.15",
     "axios": "^1.5.0",
+    "firebase": "^10.7.1",
     "formik": "^2.4.5",
     "postcss": "^8.4.29",
     "react": "^18.2.0",
